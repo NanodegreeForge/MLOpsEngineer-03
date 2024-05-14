@@ -5,5 +5,6 @@
   "test_data_path": "testdata",
   "output_model_path": "practicemodels",
   "model_pkl_file": "trainedmodel.pkl",
+  "model_score_file": "latestscore.txt",
   "prod_deployment_path": "production_deployment"
 }

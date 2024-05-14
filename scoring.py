@@ -18,7 +18,9 @@ dataset_csv_path = os.path.join(config['output_folder_path'])
 test_data_path = os.path.join(config['test_data_path'], "testdata.csv") 
 output_model_path = config['output_model_path']
 model_pkl_file = config['model_pkl_file']
+model_score_file = config['model_score_file']
 model_path = os.path.join(output_model_path, model_pkl_file) 
+score_path = os.path.join(output_model_path, model_score_file)
 
 
 
@@ -33,17 +35,17 @@ def score_model():
     x1, x2, y1, y2 = train_test_split(df_test, df_test["exited"])
     model.fit(x1, y1)
     y_prediction = model.predict(x2)
-    f1_score = metrics.f1_score(y2, y_prediction)
+    score = metrics.f1_score(y2, y_prediction)
 
     latest_score_path = os.path.join(
         os.getcwd(),
         output_model_path,
         'latestscore.txt'
     )
-    latest_score = open(os.path.join(os.getcwd(), output_model_path, "latestscore.txt"), 'w')
-    latest_score.write(str(f1_score))
+    latest_score = open(score_path, 'w')
+    latest_score.write(str(score))
 
-    return f1_score
+    return score
 
 if __name__ == '__main__':
     score_model()
