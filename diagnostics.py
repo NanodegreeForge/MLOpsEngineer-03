@@ -61,12 +61,15 @@ def outdated_packages_list():
     outdated = subprocess.check_output(['python', '-m', 'pip', 'list', '--outdated'])
     return outdated
 
-if __name__ == '__main__':
+def main():
     model_predictions()
     dataframe_summary()
     execution_time()
-    missing_data()
+    percent_na()
     outdated_packages_list()
+
+if __name__ == '__main__':
+    main
 
 
 

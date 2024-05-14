@@ -47,5 +47,8 @@ def score_model():
 
     return score
 
-if __name__ == '__main__':
+def main():
     score_model()
+
+if __name__ == '__main__':
+    main()

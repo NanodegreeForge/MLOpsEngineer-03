@@ -42,8 +42,8 @@ def merge_multiple_dataframe():
 
     return process_df
 
-
-
+def main():
+    merge_multiple_dataframe()
 
 if __name__ == '__main__':
-    merge_multiple_dataframe()
+    main()

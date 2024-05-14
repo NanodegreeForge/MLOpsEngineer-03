@@ -29,7 +29,8 @@ def score_model():
     plt.savefig(cm_path)
 
 
-
+def main():
+    score_model()
 
 if __name__ == '__main__':
     score_model()

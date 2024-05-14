@@ -40,5 +40,8 @@ def train_model():
     model_file = open(model_path, 'wb+')
     pickle.dump(model, model_file)
 
-if __name__ == '__main__':
+def main():
     train_model()
+
+if __name__ == '__main__':
+    main()

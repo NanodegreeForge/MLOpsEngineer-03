@@ -34,8 +34,11 @@ def store_model_into_pickle():
     shutil.copy(score_path, prod_deployment_path)
     shutil.copy(dataset_metadata, prod_deployment_path)
 
-if __name__ == '__main__':
+def main():
     store_model_into_pickle()
+
+if __name__ == '__main__':
+    main()
 
         
 
