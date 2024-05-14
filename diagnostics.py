@@ -1,11 +1,9 @@
-
-import pandas as pd
 import numpy as np
 import timeit
 import os
 import json
 import pickle
-import pandas
+import pandas as pd
 import subprocess
 from sklearn.model_selection import train_test_split
 from ingestion import merge_multiple_dataframe
@@ -25,15 +23,14 @@ model_path = os.path.join(os.getcwd(), prod_deployment_path, model_pkl_file)
 def model_predictions():
     #read the deployed model and a test dataset, calculate predictions
     model = pickle.load(open(model_path, "rb"))
-    df_test = pandas.read_csv(test_data).drop(['corporation'], axis=1)
-    x1, x2, y1, y2 = train_test_split(df_test, df_test["exited"])
-    y_prediction = model.predict(x2)
+    df_test = pd.read_csv(test_data).drop(['corporation'], axis=1)
+    y_prediction = model.predict(df_test)
     return y_prediction
 
 ##################Function to get summary statistics
 def dataframe_summary():
     #calculate summary statistics here
-    df_final = pandas.read_csv(training_data).drop(['corporation'], axis=1)
+    df_final = pd.read_csv(training_data).drop(['corporation'], axis=1)
     summary = df_final.describe()
     return summary.values.tolist()
 
