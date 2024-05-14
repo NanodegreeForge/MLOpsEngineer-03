@@ -50,6 +50,11 @@ def execution_time():
 
     return timing
 
+def percent_na():
+    df = pd.read_csv(training_data).drop(['corporation'], axis=1)
+    percent_na = df.isna().sum() / len(df) *100
+    return percent_na.values.tolist()
+
 ##################Function to check dependencies
 def outdated_packages_list():
     #get a list of
@@ -60,6 +65,7 @@ if __name__ == '__main__':
     model_predictions()
     dataframe_summary()
     execution_time()
+    missing_data()
     outdated_packages_list()
 
 
